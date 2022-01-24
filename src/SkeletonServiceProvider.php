@@ -2,6 +2,8 @@
 
 namespace :vendor_namespace;
 
+use Livewire\Livewire;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class :studly_package_nameServiceProvider extends ServiceProvider
@@ -15,9 +17,11 @@ class :studly_package_nameServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        Route::domain('beta.' . env('APP_DOMAIN', 'cpc1hn.com.vn'))->group(function () {
+            $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
+        });
 
         if ($this->app->runningInConsole()) {
             // Publishing the config.
@@ -43,6 +47,13 @@ class :studly_package_nameServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Seed Service Provider need on boot() method
+        |--------------------------------------------------------------------------
+        */
+        $this->app->register(SeedServiceProvider::class);
     }
 
     /**
