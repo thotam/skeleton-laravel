@@ -68,5 +68,9 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         $this->app->singleton(':package_name', function () {
             return new :studly_package_name;
         });
+
+        if (class_exists(Livewire::class)) {
+            //Livewire::component(':package_name::canhan-livewire', CaNhanLivewire::class);
+        };
     }
 }
