@@ -19,9 +19,9 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
         $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        Route::domain('beta.' . env('APP_DOMAIN', 'cpc1hn.com.vn'))->group(function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
-        });
+		Route::domain(env('APP_DOMAIN', 'cpc1hn.com.vn'))->group(function () {
+			$this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
+		});
 
         if ($this->app->runningInConsole()) {
             // Publishing the config.
