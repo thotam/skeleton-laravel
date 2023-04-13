@@ -3,8 +3,8 @@
 namespace :vendor_namespace\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Thotam\DtpStarterKit\Models\Role;
+use Thotam\DtpStarterKit\Models\Permission;
 
 class :studly_package_nameSeeder extends Seeder
 {
