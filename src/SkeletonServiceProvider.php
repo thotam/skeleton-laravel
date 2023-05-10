@@ -19,7 +19,7 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
         $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-		Route::domain((env('SUB_DOMAIN') ? env('SUB_DOMAIN') . "." : "") . env('APP_DOMAIN', 'cpc1hn.com.vn'))->group(function () {
+		Route::domain((config('dtp.domain.sub') ? config('dtp.domain.sub') . "." : "") . config('dtp.domain.main'))->group(function () {
 			$this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
 		});
 
