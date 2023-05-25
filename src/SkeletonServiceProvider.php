@@ -2,7 +2,10 @@
 
 namespace :vendor_namespace;
 
+use App\Models\User;
 use Livewire\Livewire;
+use Thotam\DtpStarterKit\Models\Hr;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
