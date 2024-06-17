@@ -6,7 +6,6 @@ use App\Models\User;
 use Livewire\Livewire;
 use Thotam\DtpStarterKit\Models\Hr;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class :studly_package_nameServiceProvider extends ServiceProvider
@@ -22,9 +21,7 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
         $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-		Route::domain((config('dtp.domain.sub') ? config('dtp.domain.sub') . "." : "") . config('dtp.domain.main'))->group(function () {
-			$this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
-		});
+		$this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
 
         if ($this->app->runningInConsole()) {
             // Publishing the config.
