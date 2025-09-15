@@ -2,7 +2,12 @@
 	"php.suggest.basic": false,
 	"php.validate.enable": true,
 	"intelephense.files.maxSize": 5000000,
-	"intelephense.environment.includePaths": ["D:/laragon/www/member"],
+	"intelephense.environment.includePaths": [
+		"D:/laragon/www/member/vendor"
+	],
+	"intelephense.files.exclude": [
+		"{.git,.github,.vscode,backups,bin,data,logs,phinx,temp,www,vendor}/**"
+	],
 	"intelephense.stubs": [
 		"apache",
 		"bcmath",
