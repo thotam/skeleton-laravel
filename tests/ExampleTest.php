@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     {
         return [:studly_package_nameServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {

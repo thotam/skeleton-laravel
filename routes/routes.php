@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::domain((config('dtp.domain.sub') ? config('dtp.domain.sub') . "." : "") . config('dtp.domain.main'))->group(function () {
-    Route::middleware(['web', 'auth', 'CheckAccountAndHr'])->group(function () {
-    });
+    Route::middleware(['web', 'auth', 'CheckAccountAndHr'])->group(function () {});
 });
