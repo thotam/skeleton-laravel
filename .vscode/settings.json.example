@@ -3,7 +3,8 @@
 	"php.validate.enable": true,
 	"intelephense.files.maxSize": 5000000,
 	"intelephense.environment.includePaths": [
-		"D:/laragon/www/member/vendor"
+		"D:/laragon/www/member",
+		"D:/laragon/www/member/vendor",
 	],
 	"intelephense.files.exclude": [
 		"{.git,.github,.vscode,backups,bin,data,logs,phinx,temp,www}/**",
