@@ -21,23 +21,13 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
         $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-		$this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
+		$this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
 
         if ($this->app->runningInConsole()) {
             // Publishing the config.
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path(':package_name.php'),
             ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/:package_name'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/:package_name'),
-            ], 'assets');*/
 
             // Publishing the translation files.
             /*$this->publishes([
@@ -68,9 +58,5 @@ class :studly_package_nameServiceProvider extends ServiceProvider
         $this->app->singleton(':package_name', function () {
             return new :studly_package_name;
         });
-
-        if (class_exists(Livewire::class)) {
-            //Livewire::component(':package_name::canhan-livewire', CaNhanLivewire::class);
-        };
     }
 }
