@@ -19,7 +19,6 @@ class :studly_package_nameServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', ':package_name');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', ':package_name');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 		$this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
 
