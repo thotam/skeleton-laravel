@@ -62,7 +62,7 @@ class SeedServiceProvider extends ServiceProvider
             // Accept command in console only,
             // exclude all commands from Artisan::call() method.
             if ($event->output instanceof ConsoleOutput) {
-                $this->addSeedsFrom(__DIR__ . $this->seeds_path);
+           $this->addSeedsFrom(__DIR__ . $this->seeds_path, $event->output);
             }
         });
     }
@@ -71,20 +71,21 @@ class SeedServiceProvider extends ServiceProvider
      * Register seeds.
      *
      * @param string  $seeds_path
+     * @param  ConsoleOutput  $output  Console output instance
      * @return void
      */
-    protected function addSeedsFrom($seeds_path)
+    protected function addSeedsFrom($seeds_path, ConsoleOutput $output): void
     {
         $file_names = glob( $seeds_path . '/*.php');
         foreach ($file_names as $filename)
         {
             $classes = $this->getClassesFromFile($filename);
             foreach ($classes as $class) {
-                echo "\033[1;33mSeeding:\033[0m {$class}\n";
+                $output->writeln("<comment>Seeding:</comment> {$class}");
                 $startTime = microtime(true);
                 Artisan::call('db:seed', [ '--class' => $class, '--force' => true ]);
                 $runTime = round(microtime(true) - $startTime, 2);
-                echo "\033[0;32mSeeded:\033[0m {$class} ({$runTime} seconds)\n";
+               $output->writeln("<info>Seeded:</info> {$class} ({$runTime} seconds)");
             }
         }
     }
