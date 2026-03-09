@@ -13,7 +13,7 @@ class :studly_package_nameSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
 		//Role
 		$super_admin = Role::updateOrCreate([

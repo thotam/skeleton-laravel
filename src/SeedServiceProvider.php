@@ -20,7 +20,7 @@ class SeedServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             if ($this->isConsoleCommandContains([ 'db:seed', '--seed' ], [ '--class', 'help', '-h' ])) {
@@ -56,13 +56,13 @@ class SeedServiceProvider extends ServiceProvider
     /**
      * Add seeds from the $seed_path after the current command in console finished.
      */
-    protected function addSeedsAfterConsoleCommandFinished()
+    protected function addSeedsAfterConsoleCommandFinished(): void
     {
         Event::listen(CommandFinished::class, function(CommandFinished $event) {
             // Accept command in console only,
             // exclude all commands from Artisan::call() method.
             if ($event->output instanceof ConsoleOutput) {
-           $this->addSeedsFrom(__DIR__ . $this->seeds_path, $event->output);
+                $this->addSeedsFrom(__DIR__ . $this->seeds_path, $event->output);
             }
         });
     }
